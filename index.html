@@ -744,22 +744,39 @@
         let isPlaying = false;
         let audioInstance = new Audio('./assets/music.mp3');
         
-        // Auto-play music when page loads
-        audioInstance.addEventListener('canplay', () => {
-            audioInstance.play();
-            isPlaying = true;
-            musicBtn.classList.add('playing');
-        });
-        
         audioInstance.loop = true; // Loop the music
         audioInstance.volume = 0.5; // Set volume to 50%
+        
+        // Auto-play music when page loads with multiple triggers
+        function startMusic() {
+            const playPromise = audioInstance.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    musicBtn.classList.add('playing');
+                }).catch(error => {
+                    console.log('Auto-play prevented:', error);
+                });
+            }
+        }
+        
+        // Try to play immediately
+        window.addEventListener('load', startMusic);
+        document.addEventListener('click', startMusic, { once: true });
+        document.addEventListener('touchstart', startMusic, { once: true });
+        
+        // Fallback: Try after a short delay
+        setTimeout(startMusic, 1000);
 
         musicBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
             musicBtn.classList.toggle('playing');
             
             if (isPlaying) {
-                audioInstance.play();
+                const playPromise = audioInstance.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => console.log('Play error:', error));
+                }
             } else {
                 audioInstance.pause();
             }
