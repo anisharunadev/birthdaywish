@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nishanthini 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ff6e7f 75%, #bfe9ff 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: floatHeart 8s infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Content Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            opacity: 0;
+            animation: fadeInDown 1.5s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #ffb3d9, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* Content Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.3s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.9s; }
+        .section:nth-child(5) { animation-delay: 1.2s; }
+        .section:nth-child(6) { animation-delay: 1.5s; }
+        .section:nth-child(7) { animation-delay: 1.8s; }
+        .section:nth-child(8) { animation-delay: 2.1s; }
+
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Special Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            border-left: 5px solid #ff6b9d;
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            border-radius: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Photo Gallery Section */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .photo-placeholder {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '💕';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #ffb3d9;
+            margin-bottom: 5px;
+        }
+
+        /* Promise Cards */
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .promise-card {
+            background: linear-gradient(135deg, rgba(255,182,193,0.3), rgba(255,105,180,0.3));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .promise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255,105,180,0.4);
+        }
+
+        .promise-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.3em;
+            animation: fadeIn 2s ease 2.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .footer .signature {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleFloat 2s ease-out forwards;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section h2 {
+                font-size: 1.6em;
+            }
+            
+            .section p {
+                font-size: 1em;
+            }
+        }
+
+        /* Music Button */
+        .music-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #c471ed);
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-button:hover {
+            transform: scale(1.1);
+        }
+
+        .music-button.playing {
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Voice Message Styles */
+        .voice-message-container {
+            padding: 20px;
+        }
+
+        .voice-player {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .play-voice-btn {
+            background: linear-gradient(135deg, #ff6b9d, #c471ed, #4facfe);
+            border: none;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .play-voice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.7);
+        }
+
+        .play-icon {
+            font-size: 1.5em;
+            animation: pulse 2s infinite;
+        }
+
+        .audio-controls {
+            margin-top: 30px;
+        }
+
+        .waveform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            height: 60px;
+            margin: 20px 0;
+        }
+
+        .wave-bar {
+            width: 6px;
+            background: linear-gradient(to top, #ff6b9d, #c471ed);
+            border-radius: 3px;
+            animation: wave 1s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { height: 20px; }
+            50% { height: 50px; }
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b9d, #c471ed);
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 10px;
+        }
+
+        .time-display {
+            text-align: center;
+            font-size: 1.1em;
+            margin: 15px 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💖 Happy Birthday My Baby Nishanthini 💖</h1>
+            <p class="subtitle">The Most Beautiful Day of My Life</p>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="section">
+            <h2>Hey Baby 💕</h2>
+            <p>Today is not just your birthday… it's the most beautiful day in my entire life, because on this day, the girl who changed everything for me was born 🌸</p>
+            <p>Since the day you entered my life, Nisha… everything started to change slowly — en mood, en smile, en mindset, en future dreams… ellam maari pochu da. Before you, life was just moving without meaning, but after you, every single thing started to have a reason — and that reason is you ❤️</p>
+        </div>
+
+        <!-- What You Mean To Me -->
+        <div class="section">
+            <h2>What You Mean To Me 🌹</h2>
+            <p>Un sirippu, un voice, un care, un thittal, un love — each and every thing made me realise what true happiness feels like. You are not just someone I love di baby… you are my peace, my strength, my heartbeat, my entire world 🌍💫</p>
+            <div class="quote-box">
+                "Ne illa na, life la everything dull-a irukum… But ne iruka, even silence feels like a song ❤️"
+            </div>
+            <p>Ninaichu paatha, since you came, I started becoming a better version of myself. Enaku confident-a iruka kathukita, enaku love panna kathukita, enaku life la oruthan irundha pora nu feel panna kathukita 💕</p>
+        </div>
+
+        <!-- Deep Love Section -->
+        <div class="section">
+            <h2>🌹 Nisha, un presence mattum pothum di 💖</h2>
+            <p>Unaku theriyuma baby, I don't just love you for how you look… I love you for how you make me feel. Un kitta pesumbodhu time stop aagura madhiri irukum. Enaku theriyadhu, naan epdi ipdi deep-a fall aayiten, but honestly naan escape panna try pannalum mudiyala 😅💘</p>
+            <p>You taught me what real love means — patience, understanding, respect, and never giving up on each other.</p>
+            <p>Un kitta fight pannumbodhum, last la naan thaan first a sorry solluven da, not because I'm weak, but because ne enaku mukkiyam di than reason 😭❤️</p>
+            <div class="quote-box">
+                "Sometimes naan yosippen, if you didn't come into my life na, enna madhiri irundhupen? Probably still confused, still searching for peace… but now naan clarity kidaichiten baby, because my future is only with you 💍"
+            </div>
+        </div>
+
+        <!-- Our Journey Timeline -->
+        <div class="section">
+            <h2>Our Beautiful Journey 🌈</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">The Day We Met</div>
+                    <p>The day my life changed forever - when I first saw you and knew you were special</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">First Conversation</div>
+                    <p>When I heard your voice and felt my heart skip a beat</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Falling In Love</div>
+                    <p>Every moment with you made me fall deeper and deeper</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Today - Your Birthday</div>
+                    <p>Celebrating the most amazing person in my life ❤️</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Next Birthday - As Husband</div>
+                    <p>The dream I'm working towards every single day 💍</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Message Section -->
+        <div class="section" style="text-align: center;">
+            <h2>🎤 A Special Voice Message For You 💝</h2>
+            <p style="font-style: italic; margin-bottom: 30px;">
+                Baby, I recorded something special just for you... Click to listen 💕
+            </p>
+            
+            <div class="voice-message-container">
+                <div class="voice-player">
+                    <button class="play-voice-btn" id="playVoiceBtn">
+                        <span class="play-icon">▶️</span>
+                        <span class="play-text">Play My Voice Message</span>
+                    </button>
+                    
+                    <div class="audio-controls" id="audioControls" style="display: none;">
+                        <audio id="voiceAudio" preload="auto">
+                            <source src="voice-message.mp3" type="audio/mpeg">
+                            <source src="voice-message.ogg" type="audio/ogg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        
+                        <div class="waveform">
+                            <div class="wave-bar" style="animation-delay: 0s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.1s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.2s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.3s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.4s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.5s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.6s;"></div>
+                            <div class="wave-bar" style="animation-delay: 0.7s;"></div>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        </div>
+                        
+                        <div class="control-buttons">
+                            <button class="control-btn" id="playPauseBtn">⏸️ Pause</button>
+                            <button class="control-btn" id="replayBtn">🔄 Replay</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 1.1em; color: rgba(255,255,255,0.9);">
+                    💭 Listen with your heart, baby... These words are only for you ❤️
+                </p>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="section">
+            <h2>Our Precious Memories 📸</h2>
+            <p style="text-align: center; font-style: italic; margin-bottom: 30px;">
+                
+            </p>
+          <div class="photo-gallery">
+                <div class="photo-item">
+                    <div class="photo-placeholder">
+                        <p>💕<br><img src="./assets/Image.jpeg"/></p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder">
+                       <p>💕<br><img src="./assets/Image1.jpeg"/></p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder">
+                        <p>💕<br><img src="./assets/Image2.jpeg"/></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Promise -->
+        <div class="section">
+            <h2>🌈 Next Birthday Naan Husband Ah Celebrate Panren Di 💕</h2>
+            <p>Indha birthday naan unna boyfriend ah wish panren…</p>
+            <p>Aana next birthday naan unna wife ah irundha celebrate panren 😘💞</p>
+            <p>That moment I'm waiting for — when I'll wake you up with a kiss, decorate our room with roses, make your favorite cake, and say "Happy Birthday, my wife Nisha ❤️"</p>
+            <p>That day will be the happiest day of my life baby.</p>
+        </div>
+
+        <!-- My Promises -->
+        <div class="section">
+            <h2>My Promises To You 💝</h2>
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <div class="icon">🌹</div>
+                    <h3>Forever Love</h3>
+                    <p>I'll love you more with each passing day</p>
+                </div>
+                <div class="promise-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Protection</h3>
+                    <p>Your smile, your happiness - I'll protect always</p>
+                </div>
+                <div class="promise-card">
+                    <div class="icon">🤝</div>
+                    <h3>Support</h3>
+                    <p>In every up & down, I'll be right beside you</p>
+                </div>
+                <div class="promise-card">
+                    <div class="icon">✨</div>
+                    <h3>Dreams</h3>
+                    <p>Your dreams are my dreams, we'll achieve them together</p>
+                </div>
+                <div class="promise-card">
+                    <div class="icon">💑</div>
+                    <h3>Partnership</h3>
+                    <p>Not just lovers, but life partners forever</p>
+                </div>
+                <div class="promise-card">
+                    <div class="icon">💍</div>
+                    <h3>Marriage</h3>
+                    <p>Soon you'll be my wife, legally & eternally</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="section">
+            <h2>You Are My Everything 💖</h2>
+            <p>Unaku naan promise panren — naan un kooda irupen every up & down la, un smile protect panuven, un tears wipe panuven, un dreams achieve panna help panuven 🌹</p>
+            <p>Un kitta en love daily-a perusa aagudhu da… indha message la solla mudiyadhu. Words are too small for what I feel inside.</p>
+            <p>Ne enaku lover illa da, you are my life partner, my everything ❤️</p>
+            <div class="quote-box">
+                "En kooda vandha podhu en life la color vandhuduchu da."
+            </div>
+            <p>From this birthday onwards, naan only one wish pannen — next birthday ku naan unoda husband ah, legally, emotionally, and soulfully celebrate panna 💍❤️</p>
+            <p>Until then, every heartbeat of mine will whisper your name…</p>
+            <p style="text-align: center; font-size: 1.4em; font-style: italic;">Nishanthini… Nishanthini… my baby, my queen, my everything 💖</p>
+        </div>
+
+        <!-- Closing -->
+        <div class="section">
+            <h2>💞 Happy Birthday My Baby 💞</h2>
+            <p style="text-align: center; font-size: 1.3em;">I love you more than anything in this world, Nisha.</p>
+            <div class="quote-box" style="text-align: center; font-size: 1.2em;">
+                "You're not just a chapter in my story…<br>
+                You are the whole damn book 📖❤️"
+            </div>
+        </div>
+
+        <!-- Footer Signature -->
+        <div class="footer">
+            <p>💖 With Endless Love 💖</p>
+            <p class="signature">Your Anish ❤️</p>
+        </div>
+    </div>
+
+    <!-- Music Button (Optional) -->
+    <button class="music-button" id="musicBtn" title="Play/Pause Music">🎵</button>
+
+    <script>
+        // Floating Hearts Animation
+        function createHeart() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💝', '❤️', '💓'][Math.floor(Math.random() * 6)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create hearts continuously
+        setInterval(createHeart, 500);
+
+        // Sparkle effect on scroll
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            if (Math.abs(window.scrollY - lastScrollY) > 50) {
+                createSparkle();
+                lastScrollY = window.scrollY;
+            }
+        });
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = window.scrollY + Math.random() * window.innerHeight + 'px';
+            sparkle.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Music Button (You can add audio file)
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            musicBtn.classList.toggle('playing');
+            
+            // Add your audio code here
+            // const audio = new Audio('your-song.mp3');
+            // if (isPlaying) {
+            //     audio.play();
+            // } else {
+            //     audio.pause();
+            // }
+        });
+
+        // Smooth scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Create initial hearts
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+
+        // Add sparkles on page load
+        setTimeout(() => {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createSparkle, i * 200);
+            }
+        }, 1000);
+
+        // Voice Message Player
+        const playVoiceBtn = document.getElementById('playVoiceBtn');
+        const audioControls = document.getElementById('audioControls');
+        const voiceAudio = document.getElementById('voiceAudio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const replayBtn = document.getElementById('replayBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.querySelector('.progress-container');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+
+        // Format time helper
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Initial play button
+        playVoiceBtn.addEventListener('click', () => {
+            playVoiceBtn.style.display = 'none';
+            audioControls.style.display = 'block';
+            voiceAudio.play();
+        });
+
+        // Play/Pause button
+        playPauseBtn.addEventListener('click', () => {
+            if (voiceAudio.paused) {
+                voiceAudio.play();
+                playPauseBtn.textContent = '⏸️ Pause';
+            } else {
+                voiceAudio.pause();
+                playPauseBtn.textContent = '▶️ Play';
+            }
+        });
+
+        // Replay button
+        replayBtn.addEventListener('click', () => {
+            voiceAudio.currentTime = 0;
+            voiceAudio.play();
+            playPauseBtn.textContent = '⏸️ Pause';
+        });
+
+        // Update progress bar
+        voiceAudio.addEventListener('timeupdate', () => {
+            const progress = (voiceAudio.currentTime / voiceAudio.duration) * 100;
+            progressBar.style.width = progress + '%';
+            currentTimeDisplay.textContent = formatTime(voiceAudio.currentTime);
+        });
+
+        // Set duration when loaded
+        voiceAudio.addEventListener('loadedmetadata', () => {
+            durationDisplay.textContent = formatTime(voiceAudio.duration);
+        });
+
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            voiceAudio.currentTime = percent * voiceAudio.duration;
+        });
+
+        // When audio ends
+        voiceAudio.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶️ Play';
+            progressBar.style.width = '0%';
+        });
+    </script>
+</body>
+</html>
