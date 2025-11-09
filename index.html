@@ -355,6 +355,73 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Play Overlay */
+        .play-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .play-overlay.hidden {
+            display: none;
+        }
+
+        .play-overlay-content {
+            text-align: center;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .play-overlay-btn {
+            background: linear-gradient(135deg, #ff6b9d, #c471ed);
+            border: none;
+            padding: 30px 60px;
+            border-radius: 50px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.6);
+            transition: all 0.3s ease;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .play-overlay-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.8);
+        }
+
+        .play-overlay h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .play-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
         /* Voice Message Styles */
         .voice-message-container {
             padding: 20px;
@@ -695,6 +762,15 @@
     <!-- Music Button (Optional) -->
     <button class="music-button" id="musicBtn" title="Play/Pause Music">🎵</button>
 
+    <!-- Play Music Overlay -->
+    <div class="play-overlay" id="playOverlay">
+        <div class="play-overlay-content">
+            <h2>🎵 Music Ready 🎵</h2>
+            <p>Click to play background music</p>
+            <button class="play-overlay-btn" id="playOverlayBtn">▶️ Play Music</button>
+        </div>
+    </div>
+
     <script>
         // Floating Hearts Animation
         function createHeart() {
@@ -741,33 +817,39 @@
 
         // Music Button (You can add audio file)
         const musicBtn = document.getElementById('musicBtn');
+        const playOverlay = document.getElementById('playOverlay');
+        const playOverlayBtn = document.getElementById('playOverlayBtn');
         let isPlaying = false;
         let audioInstance = new Audio('./assets/music.mp3');
         
         audioInstance.loop = true; // Loop the music
         audioInstance.volume = 0.5; // Set volume to 50%
         
-        // Auto-play music when page loads with multiple triggers
+        // Function to start music
         function startMusic() {
             const playPromise = audioInstance.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
                     isPlaying = true;
                     musicBtn.classList.add('playing');
+                    playOverlay.classList.add('hidden');
                 }).catch(error => {
-                    console.log('Auto-play prevented:', error);
+                    console.log('Play error:', error);
                 });
             }
         }
         
-        // Try to play immediately
-        window.addEventListener('load', startMusic);
-        document.addEventListener('click', startMusic, { once: true });
-        document.addEventListener('touchstart', startMusic, { once: true });
+        // Play overlay button
+        playOverlayBtn.addEventListener('click', startMusic);
         
-        // Fallback: Try after a short delay
-        setTimeout(startMusic, 1000);
+        // Also allow click anywhere on overlay to start music
+        playOverlay.addEventListener('click', (e) => {
+            if (e.target === playOverlay) {
+                startMusic();
+            }
+        });
 
+        // Music button toggle
         musicBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
             musicBtn.classList.toggle('playing');
