@@ -742,18 +742,27 @@
         // Music Button (You can add audio file)
         const musicBtn = document.getElementById('musicBtn');
         let isPlaying = false;
+        let audioInstance = new Audio('music.mp3');
+        
+        // Auto-play music when page loads
+        audioInstance.addEventListener('canplay', () => {
+            audioInstance.play();
+            isPlaying = true;
+            musicBtn.classList.add('playing');
+        });
+        
+        audioInstance.loop = true; // Loop the music
+        audioInstance.volume = 0.5; // Set volume to 50%
 
         musicBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
             musicBtn.classList.toggle('playing');
             
-            // Add your audio code here
-            // const audio = new Audio('your-song.mp3');
-            // if (isPlaying) {
-            //     audio.play();
-            // } else {
-            //     audio.pause();
-            // }
+            if (isPlaying) {
+                audioInstance.play();
+            } else {
+                audioInstance.pause();
+            }
         });
 
         // Smooth scroll reveal animations
